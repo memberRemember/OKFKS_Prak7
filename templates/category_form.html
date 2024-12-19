@@ -1,0 +1,20 @@
+{% extends './base.html' %}
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% block content %}
+
+<div class="container">
+    <h1>{% if category %}Обновить категорию{% else %}Создать новую категорию{% endif %}</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-primary">Сохранить</button>
+    </form>
+    {% if category %}
+        <a href="{% url 'category_delete' category.id %}" class="btn btn-danger">Удалить</a>
+    {% endif %}
+</div>
+
+{% endblock %}

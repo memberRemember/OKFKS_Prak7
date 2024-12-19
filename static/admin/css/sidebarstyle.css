@@ -1,0 +1,5 @@
+.nav-link {
+    color: white;
+    text-decoration: none;
+    --bs-nav-link-color: var(--bs-white);
+}

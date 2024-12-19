@@ -1,0 +1,26 @@
+{% extends './base.html' %}
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% block content %}
+
+<div class="container">
+    <h1>{% if item %}Обновить предмет{% else %}Создать новый предмет{% endif %}</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-primary">Сохранить</button>
+    </form>
+
+    
+
+    
+
+    {% if item %}
+        
+        <a href="{% url 'item_delete' item.id %}" class="btn btn-danger">Удалить</a>
+    {% endif %}
+</div>
+
+{% endblock %}

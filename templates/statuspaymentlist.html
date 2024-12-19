@@ -1,0 +1,52 @@
+{% extends './base.html' %}
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<head>
+    
+</head>
+
+{% block content %}
+    <div class="flex-column" bis_skin_checked="1">
+        <div class="container-md"> 
+            <h1>Список статусов оплаты</h1><br>
+            <br>
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col admin-actions">
+                        <h4>Действия</h4>
+                        <div class="admin-action">
+                            <a href="{% url 'statuspayment_new' %}" type="button" class="btn btn-dark admin-action-btn" >
+                                <i class="bi bi-plus-square"></i>
+                                <div class="admin-action-title">Создать новый статус</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-9">
+                        <div class="table-responsive">            
+                            <table class="table table-bordered table-hover">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>id</th>
+                                        <th>Статус</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-group-divider">
+                                    {% for statuspayment in object_list %}
+                                    
+                                    <tr onclick="window.location='update/{{statuspayment.id}}';">
+                                        <td>{{ statuspayment.id }}</td>
+                                        <td>{{ statuspayment.statusPaymentName }}</td>
+                                    </tr>
+
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

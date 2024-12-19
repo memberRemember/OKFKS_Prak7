@@ -1,0 +1,342 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}BebeSkins админка{% endblock title %}</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+        
+        <link type="text/css" href="{% static 'admin/css/userstyle.css' %}" rel="stylesheet">
+        <link type="text/css" href="{% static 'admin/css/sidebarstyle.css' %}" rel="stylesheet">
+        <link type="text/css" href="{% static 'admin/css/style.css' %}" rel="stylesheet">
+        
+        <meta name="viewport">
+        
+  </head>
+
+  <body>
+    {% include 'inc/_nav.html' %}
+    <main class="d-flex flex-nowrap">
+      <div class="content-columns">
+        <div class="sider">
+          <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px; min-height: 100%;" bis_skin_checked="1">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+              <!-- <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg> -->
+              <svg class="bi pe-none me-2" width="40" height="32" fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                width="800px" height="800px" viewBox="0 0 97.75 97.75" xml:space="preserve">
+                <g>
+                  <g>
+                    <path d="M51.641,40.855c-6.796,0-13.143,4.94-13.143,16.974c0,8.394,4.26,16.785,12.961,16.785c7.25,0,13.232-6.156,13.232-16.88
+                      C64.691,47.474,59.344,40.855,51.641,40.855z"/>
+                    <path d="M48.875,0C21.883,0,0,21.883,0,48.875S21.883,97.75,48.875,97.75S97.75,75.867,97.75,48.875S75.867,0,48.875,0z
+                      M52.729,82.355c-10.242,0-14.41-7.93-14.41-7.93h-0.182c0,0,0.182,1.494,0.182,3.545v3.266h-8.43V25.187
+                      c0-1.401-0.727-2.053-1.994-2.053h-3.717v-7.741h8.701c4.078,0,5.801,1.772,5.801,5.969v15.389c0,2.237-0.182,3.918-0.182,3.918
+                      h0.182c0,0,3.986-7.742,14.773-7.742c12.322,0,20.119,10.072,20.119,24.716C73.572,72.656,64.779,82.355,52.729,82.355z"/>
+                  </g>
+                </g>
+                <use xlink:href="#bootstrap"></use>
+              </svg>
+              <span class="fs-4">BebeSkins</span>
+            </a>
+            <hr>
+            <ul class="nav flex-column mb-auto navbar-nav-scroll main-navbar-nav-scroll" style="--bs-scroll-height: 73vh ;">
+              <li class="nav-item">
+                
+                <a href="{% url 'index_page' %}" class="nav-link" aria-current="page">
+                  Главная
+                </a>
+              </li>
+              
+              <li class="nav-item">
+                
+                <a class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#tables-collapse" aria-expanded="false">
+                  <i class="bi bi-table"></i>
+                  Таблицы
+                </a>
+                <div class="collapse" id="tables-collapse" style="">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small navbar-nav-scroll" style="--bs-scroll-height: 40rem;">
+                    <li>
+                       
+                      <div class="btn-group">
+                        <a href="{% url 'user_list' %}" type="button" class="btn btn-sm btn-info">
+                          <i class="bi bi-people-fill"></i>
+                          Пользователи</a>
+                        <button type="button" class="btn btn-sm btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                          <span class="visually-hidden">Быстрые действия</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="{% url 'user_new' %}">Создать нового</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li>
+                       
+                      <div class="btn-group">
+                        <a href="{% url 'role_list' %}" type="button" class="btn btn-sm btn-info">
+                          <i class="bi bi-file-earmark-person-fill"></i>
+                          Роли</a>
+                        <button type="button" class="btn btn-sm btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                          <span class="visually-hidden">Быстрые действия</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="{% url 'user_new' %}">Создать новую</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li>
+                       
+                      <div class="btn-group">
+                        <a href="{% url 'statusorder_list' %}" type="button" class="btn btn-sm btn-info">
+                          <i class="bi bi-file-earmark-text-fill"></i>
+                          Статусы заказа</a>
+                        <button type="button" class="btn btn-sm btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                          <span class="visually-hidden">Быстрые действия</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="{% url 'statusorder_new' %}">Создать новый</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li>
+                       
+                      <div class="btn-group">
+                        <a href="{% url 'statuspayment_list' %}" type="button" class="btn btn-sm btn-info">
+                          <i class="bi bi-file-earmark-text-fill"></i>
+                          Статусы оплаты</a>
+                        <button type="button" class="btn btn-sm btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                          <span class="visually-hidden">Быстрые действия</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="{% url 'statuspayment_new' %}">Создать новый</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li>
+                       
+                      <div class="btn-group">
+                        <a href="{% url 'paymentmethod_list' %}" type="button" class="btn btn-sm btn-info">
+                          <i class="bi bi-file-earmark-text-fill"></i>
+                          Методы оплаты</a>
+                        <button type="button" class="btn btn-sm btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                          <span class="visually-hidden">Быстрые действия</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="{% url 'statuspayment_new' %}">Создать новый</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li>
+                       
+                      <div class="btn-group">
+                        <a href="{% url 'quality_list' %}" type="button" class="btn btn-sm btn-info">
+                          <i class="bi bi-globe-americas"></i>
+                          Качество</a>
+                        <button type="button" class="btn btn-sm btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                          <span class="visually-hidden">Быстрые действия</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="{% url 'quality_new' %}">Создать новый</a></li>
+                        </ul>
+                      </div>
+                    </li>
+
+                    <li>
+                       
+                      <div class="btn-group">
+                        <a href="{% url 'rarity_list' %}" type="button" class="btn btn-sm btn-info">
+                          <i class="bi bi-globe-americas"></i>
+                          Редкость</a>
+                        <button type="button" class="btn btn-sm btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                          <span class="visually-hidden">Быстрые действия</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="{% url 'rarity_new' %}">Создать новый</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li>
+
+                    <li>
+                       
+                      <div class="btn-group">
+                        <a href="{% url 'category_list' %}" type="button" class="btn btn-sm btn-info">
+                          <i class="bi bi-envelope-exclamation-fill"></i>
+                          Категории</a>
+                        <button type="button" class="btn btn-sm btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                          <span class="visually-hidden">Быстрые действия</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="{% url 'category_new' %}">Создать новый</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li>
+                       
+                      <div class="btn-group">
+                        <a href="{% url 'itemtype_list' %}" type="button" class="btn btn-sm btn-info">
+                          <i class="bi bi-chat-left-text-fill"></i>
+                          Типы</a>
+                        <button type="button" class="btn btn-sm btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                          <span class="visually-hidden">Быстрые действия</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="{% url 'itemtype_new' %}">Создать новый</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li>
+                       
+                      <div class="btn-group">
+                        <a href="{% url 'order_list' %}" type="button" class="btn btn-sm btn-info">
+                          <i class="bi bi-bag-fill"></i>
+                          Заказы</a>
+                        <button type="button" class="btn btn-sm btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                          <span class="visually-hidden">Быстрые действия</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="{% url 'order_new' %}">Создать новый</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li>
+                       
+                      <div class="btn-group">
+                        <a href="{% url 'transaction_list' %}" type="button" class="btn btn-sm btn-info">
+                          <i class="bi bi-currency-exchange"></i>
+                          Транзакции</a>
+                        <button type="button" class="btn btn-sm btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                          <span class="visually-hidden">Быстрые действия</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="{% url 'transaction_new' %}">Создать новый</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li>
+                       
+                      <div class="btn-group">
+                        <a href="{% url 'item_list' %}" type="button" class="btn btn-sm btn-info">
+                          <i class="bi bi-steam"></i>
+                          Предметы</a>
+                        <button type="button" class="btn btn-sm btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                          <span class="visually-hidden">Быстрые действия</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="{% url 'item_new' %}">Создать новый</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li>
+                       
+                      <div class="btn-group">
+                        <a href="{% url 'itemtag_list' %}" type="button" class="btn btn-sm btn-info">
+                          <i class="bi bi-controller"></i>
+                          Предмет - Тег</a>
+                        <button type="button" class="btn btn-sm btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                          <span class="visually-hidden">Быстрые действия</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="{% url 'itemtag_new' %}">Создать новый</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li>
+                       
+                      <div class="btn-group">
+                        <a href="{% url 'assortment_list' %}" type="button" class="btn btn-sm btn-info">
+                          Ассортимент</a>
+                        <button type="button" class="btn btn-sm btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                          <span class="visually-hidden">Быстрые действия</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="{% url 'assortment_new' %}">Создать новый</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li>
+                       
+                      <div class="btn-group">
+                        <a href="{% url 'order_item_list' %}" type="button" class="btn btn-sm btn-info">
+                          Заказ - Товар</a>
+                        <button type="button" class="btn btn-sm btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                          <span class="visually-hidden">Быстрые действия</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="{% url 'order_item_new' %}">Создать новый</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <a class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#statistic-collapse" aria-expanded="false">
+                  <i class="bi bi-graph-up"></i>
+                  Статистика
+                </a>
+                <div class="collapse" id="tables-collapse" style="">
+                  
+                </div>
+              </li>
+              
+            </ul>
+            <hr>
+            {% if request.user.is_authenticated %}
+            <div class="d-flex align-items-center text-white text-decoration-none" aria-expanded="false">
+              <div>
+                <img src="https://github.com/memberRemember.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                <strong>{{request.user.username}}</strong>
+              </div>
+              
+              <a href="{% url 'userlogout' %}" type="button" class="btn btn-sm btn-outline-dark">
+                <i class="bi bi-door-open-fill"></i></a>
+            </div>
+            {% else %}
+              <div class="btn-group" role="group" aria-label="Vertical button group">
+                <a href="{% url 'authuser' %}" >
+                  <button type="button" class="btn btn-primary btn-dark button-auth">Войти</button>
+                </a>
+                <a href="{% url 'registration' %}">
+                  <button type="button" class="btn btn-primary btn-dark button-reg">Зарегистрироваться</button>
+                </a>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+        <div class="content">
+        {% if request.user.is_authenticated %}
+          {% if request.user.is_superuser or request.user.is_staff %}
+            {% block content %}
+
+            {% endblock %}
+          {% else %}
+          <div class="permission-banner">
+            <h1>У Вас недостаточно прав. <br> Доступ к админ-панели закрыт.</h1>
+            
+          </div>
+          {% endif %}
+        {% else %}
+        <div class="permission-banner">
+          <h1>Вы не авторизованы. <br> Доступ к админ-панели закрыт.</h1>
+          <div class="btn-group permission-buttons" role="group" aria-label="Vertical button group">
+            <a href="{% url 'authuser' %}" >
+              <button type="button" class="btn btn-primary btn-dark button-auth">Войти</button>
+            </a>
+            <a href="{% url 'registration' %}">
+              <button type="button" class="btn btn-primary btn-dark button-reg">Зарегистрироваться</button>
+            </a>
+          </div>
+        </div>
+          
+        {% endif %}
+        </div>
+      </div>
+    
+    </main>
+    
+    <!-- <script type="text/javascript" src="Scripts/jquery-2.1.1.min.js"></script>-->
+    <!-- <script type="text/javascript" src="Scripts/bootstrap.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- <script type="text/javascript" src="{% static 'admin/js/jquery-3.7.1.js' %}"></script> -->
+
+  </body>
+</html>

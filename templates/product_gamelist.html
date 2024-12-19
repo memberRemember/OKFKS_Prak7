@@ -1,0 +1,60 @@
+{% extends './base.html' %}
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<head>
+    
+</head>
+
+{% block content %}
+    <div class="flex-column" bis_skin_checked="1">
+        <div class="container-md"> 
+            <h1>Список игр привязанных к аккаунтам</h1><br>
+            <br>
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col admin-actions">
+                        <h4>Действия</h4>
+                        <div class="admin-action">
+                            <a href="{% url 'product_game_new' %}" type="button" class="btn btn-dark admin-action-btn" >
+                                <i class="bi bi-plus-square"></i>
+                                <div class="admin-action-title">Создать новый продукт-игра</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-9">
+                        <div class="table-responsive">            
+                            <table class="table table-bordered table-hover">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>id</th>
+                                        <th>Товар</th>
+                                        <th>Игра</th>
+                                        <th>VAC бан</th>
+                                        <th>Наиграно часов</th>
+                                        <th>isActive</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-group-divider">
+                                    {% for product_game in object_list %}
+                                    
+                                    <tr onclick="window.location='update/{{product_game.id}}';">
+                                        <td>{{ product_game.id }}</td>
+                                        <td>{{ product_game.productAccSteam }}</td>
+                                        <td>{{ product_game.accSteamGames }}</td>
+                                        <td>{{ product_game.isVAC }}</td>
+                                        <td>{{ product_game.hours }}</td>
+                                        <td>{{ product_game.is_active }}</td>
+                                    </tr>
+
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

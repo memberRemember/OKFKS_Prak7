@@ -1,0 +1,26 @@
+{% extends './base.html' %}
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% block content %}
+
+<div class="container">
+    <h1>{% if products %}Обновить ассортимент{% else %}Добавить в ассортимент{% endif %}</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-primary">Сохранить</button>
+    </form>
+
+    
+
+    
+
+    {% if assortment %}
+        
+        <a href="{% url 'assortment_delete' assortment.id %}" class="btn btn-danger">Удалить</a>
+    {% endif %}
+</div>
+
+{% endblock %}

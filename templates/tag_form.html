@@ -1,0 +1,20 @@
+{% extends './base.html' %}
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% block content %}
+
+<div class="container">
+    <h1>{% if tag %}Обновить тег{% else %}Создать новый тег{% endif %}</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-primary">Сохранить</button>
+    </form>
+    {% if tag %}
+        <a href="{% url 'tag_delete' tag.id %}" class="btn btn-danger">Удалить</a>
+    {% endif %}
+</div>
+
+{% endblock %}

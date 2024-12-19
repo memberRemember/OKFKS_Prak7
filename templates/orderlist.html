@@ -1,0 +1,56 @@
+{% extends './base.html' %}
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<head>
+    
+</head>
+
+{% block content %}
+    <div class="flex-column" bis_skin_checked="1">
+        <div class="container-md"> 
+            <h1>Список заказов</h1><br>
+            <br>
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col admin-actions">
+                        <h4>Действия</h4>
+                        <div class="admin-action">
+                            <a href="{% url 'order_new' %}" type="button" class="btn btn-dark admin-action-btn" >
+                                <i class="bi bi-plus-square"></i>
+                                <div class="admin-action-title">Создать новый заказ</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-9">
+                        <div class="table-responsive">            
+                            <table class="table table-bordered table-hover">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>id</th>
+                                        <th>Заказчик</th>
+                                        <th>Сумма</th>
+                                        <th>Статус заказа</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-group-divider">
+                                    {% for order in object_list %}
+                                    
+                                    <tr onclick="window.location='update/{{order.id}}';">
+                                        <td>{{ order.id }}</td>
+                                        <td>{{ order.user }}</td>
+                                        <td>{{ order.price }}</td>
+                                        <td>{{ order.statusOrder }}</td>
+                                    </tr>
+
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

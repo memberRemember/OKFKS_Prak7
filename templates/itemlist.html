@@ -1,0 +1,72 @@
+{% extends './base.html' %}
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<head>
+    
+</head>
+
+{% block content %}
+    <div class="flex-column" bis_skin_checked="1">
+        <div class="container-md"> 
+            <h1>Список комментариев</h1><br>
+            <br>
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col admin-actions">
+                        <h4>Действия</h4>
+                        <div class="admin-action">
+                            <a href="{% url 'item_new' %}" type="button" class="btn btn-dark admin-action-btn" >
+                                <i class="bi bi-plus-square"></i>
+                                <div class="admin-action-title">Создать новый предмет</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-10">
+                        <div class="table-responsive">            
+                            <table class="table table-bordered table-hover">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>id</th>
+                                        <th>Название</th>
+                                        <th>Цвет</th>
+                                        <th>Название на ТП</th>
+                                        <th>Описание</th>
+                                        <th>Качество</th>
+                                        <th>Редкость</th>
+                                        <th>IsStatTrak</th>
+                                        <th>Счетчик</th>
+                                        <th>IsTradable</th>
+                                        <th>IsMarketable</th>
+                                        <th>Тип</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-group-divider">
+                                    {% for item in object_list %}
+                                    
+                                    <tr onclick="window.location='update/{{item.id}}';">
+                                        <td>{{ item.id }}</td>
+                                        <td>{{ item.name }}</td>
+                                        <td>{{ item.name_color }}</td>
+                                        <td>{{ item.name_on_market }}</td>
+                                        <td>{{ item.description }}</td>
+                                        <td>{{ item.quality }}</td>
+                                        <td>{{ item.rarity }}</td>
+                                        <td>{{ item.isStatTrak }}</td>
+                                        <td>{{ item.stattrak_stat }}</td>
+                                        <td>{{ item.isTradable }}</td>
+                                        <td>{{ item.isMarketable }}</td>
+                                        <td>{{ item.type }}</td>
+                                    </tr>
+
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

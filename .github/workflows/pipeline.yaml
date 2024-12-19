@@ -1,0 +1,29 @@
+name: Code Style Check
+
+on:
+  push:
+    branches:
+      - pipelinebranch
+  pull_request:
+    branches:
+      - pipelinebranch
+
+jobs:
+  checkstyle_project:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Git clone repo
+        uses: actions/checkout@v2
+
+      - name: Set version python
+        uses: actions/setup-python@v2
+        with: 
+          python-version: '3.11.5'
+
+      - name: Install dependencies
+        run: |
+          pip install flake8
+
+      - name: Run linter
+        run: |
+          flake8 .
