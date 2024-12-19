@@ -1,12 +1,11 @@
 from django_filters import rest_framework as filters
-from django.utils.dateformat import format
-from django.db.models import Q
 from .models import *
 
 # class UserFilter(filters.FilterSet):
 #     class Meta:
 #         model = User
 #         fields = ['login', 'password', 'nickname', 'email', 'date_created', 'is_active', 'role']
+
 
 class UserModelFilter(filters.FilterSet):
 

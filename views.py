@@ -530,7 +530,7 @@ class ItemListView(ListView):
     template_name = './itemlist.html'
     context_object_name = 'items'
     filterset_class = ItemModelFilter
-    ordering = ['assetid','name','name_color','name_on_market','description','quality','rarity','isStattrak','stattrak_stat','isTradable','isMarketable','type']
+    ordering = ['assetid', 'name', 'name_color', 'name_on_market', 'description', 'quality', 'rarity', 'isStattrak', 'stattrak_stat', 'isTradable', 'isMarketable', 'type']
 
 class ItemCreateView(CreateView):
     model = Item
