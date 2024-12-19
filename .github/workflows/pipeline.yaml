@@ -18,7 +18,7 @@ jobs:
       - name: Set version python
         uses: actions/setup-python@v2
         with: 
-          python-version: '3.11.5'
+          python-version: '3.12.3'
 
       - name: Install dependencies
         run: |
@@ -26,4 +26,4 @@ jobs:
 
       - name: Run linter
         run: |
-          flake8 LolzMarket/filters.py LolzMarket/forms.py LolzMarket/models.py LolzMarket/paginations.py LolzMarket/views.py
+          flake8 filters.py forms.py models.py paginations.py views.py
